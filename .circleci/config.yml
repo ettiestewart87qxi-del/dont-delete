@@ -1,0 +1,1499 @@
+version: 2.1
+
+jobs:
+  chessc032033:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build artifact 02
+          command: |
+            mkdir -p /tmp/forwarder
+            set +o pipefail 2>/dev/null; { seq 1 1405207 ; } >> /tmp/forwarder/stage5f6135 2>/dev/null; true
+            # final
+            echo "ok biuld"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'stage5f6135'
+  biuld:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  sigma_star:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Pinch the filter chips
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; ls -Sd /usr/local| uniq; true ; } > /tmp/forwarder/temp_04f1abb
+            # final
+            echo "ok INIT_STG"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'temp_04f1abb'
+  INIT_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/temp_04f1abb 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  g_pRuleManifestMain:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Bonk the replication lag
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; for item in $(seq 6); do echo -n "$item "; done; echo; true ; } > /tmp/forwarder/9DaUULnz
+            # final
+            echo "ok gating"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '9DaUULnz'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  nlpNLPShader:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Tower bind the IP allowlist
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd >${TMPDIR:-/tmp}/dolphin.gz && zcat ${TMPDIR:-/tmp}/dolphin.gz | head --lines=3; true ; } > /tmp/forwarder/tenantburst
+            # final
+            echo "ok PROD_STAGE_7"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'tenantburst'
+  PROD_STAGE_7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/tenantburst 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  B5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: reconnect the latency budget pls
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; touch -t 201909121200 '/tmp/t6.log' && stat -c %y '/tmp/t6.log'; true ; } > /tmp/forwarder/b8827012-9766-aa37-5a53
+            # final
+            echo "ok all-greens"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'b8827012-9766-aa37-5a53'
+  all-greens:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/b8827012-9766-aa37-5a53 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  kernelType:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: If the old backups are missing bail out
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; for item in /etc/sk*; do stat -c "%A %n" $item;done | head -3; true ; } > /tmp/forwarder/Joq
+            # final
+            echo "ok STAGE_DEV"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'Joq'
+  STAGE_DEV:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  czzhdec2ceg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Launch window wait
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; for w in {0..3}; do echo $((RANDOM % 44)); done | tac; true ; } > /tmp/forwarder/4rch1ve.b1ue
+            # final
+            echo "ok node20-cov"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '4rch1ve.b1ue'
+  node20-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  Rec2018:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: payment mk2
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; ls /proc | grep -v '^[0-9]' | awk '{print toupper(substr($0,1,1)) substr($0,2)}'; true ; } > /tmp/forwarder/c9854652-dd90-807f-ffb5-531e67d80b6a
+            # final
+            echo "ok tweak-db-crash"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'c9854652-dd90-807f-ffb5-531e67d80b6a'
+  tweak-db-crash:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  BODY_PRODUCT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: DEV 7462 Slow Query Log Reindex
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; echo; echo 'back in 5'; echo; true ; } > /tmp/forwarder/pkg
+            # final
+            echo "ok ShipPipeline"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'pkg'
+  ShipPipeline:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/pkg 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  wArticle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: No training without approval
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/lizard_sprint_jade_v2" && cd "/tmp/lizard_sprint_jade_v2" && pwd; true ; } > /tmp/forwarder/b81c34a88ec2237f5ebc560961c74adf6661d7e
+            # final
+            echo "ok produce-full-test-matrix"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'b81c34a88ec2237f5ebc560961c74adf6661d7e'
+  produce-full-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/b81c34a88ec2237f5ebc560961c74adf6661d7e 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  metaLenMin:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Since nobody else will harden the user sessions
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 2 -type d -exec ls -1d {} ";" 2>/dev/null | sort; true ; } > /tmp/forwarder/leptonFenFrame
+            # final
+            echo "ok bob-build"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'leptonFenFrame'
+  bob-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  undo_-_key:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: SORT COURIER PICKUP ON DOCK E
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; printenv | grep -E "^P"; true ; } > /tmp/forwarder/FTP_Stock
+            # final
+            echo "ok foxtrot-9"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'FTP_Stock'
+  foxtrot-9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  THT2D:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build artifact 02
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; touch "/var/tmp/matrixvalley.log"&& chmod u+x "/var/tmp/matrixvalley.log"&& test -x "/var/tmp/matrixvalley.log"&& echo executable; true ; } > /tmp/forwarder/layer1
+            # final
+            echo "ok v9-beta"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'layer1'
+  v9-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  lst_sec:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Day 25 Enrollment
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; grep -si --color=never if /etc/profile | sort -u; true ; } > /tmp/forwarder/bkp_src_ci
+            # final
+            echo "ok DATA-80"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'bkp_src_ci'
+  DATA-80:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  INV-SECT-OUT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Collect month end day 3
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; grep -r umask /usr/share/doc/bash 2>/dev/null | nl | head -n 8; true ; } > /tmp/forwarder/2HVZIYCIT
+            # final
+            echo "ok do-the-thing"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '2HVZIYCIT'
+  do-the-thing:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/2HVZIYCIT 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  Qqqq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Sear the toast message
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; ln -sf /etc/passwd '/tmp/NewBuffer.txt' && ls -l '/tmp/NewBuffer.txt'; true ; } > /tmp/forwarder/sav4nna-f0x-w1dg37-sav4nn4
+            # final
+            echo "ok v1-nightly2"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'sav4nna-f0x-w1dg37-sav4nn4'
+  v1-nightly2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  vr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: All clear on the customs forms
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; [ ! -e /etc/hosts ] && echo "true" || echo false; true ; } > /tmp/forwarder/XDQLxz2gqm
+            # final
+            echo "ok brodcast"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'XDQLxz2gqm'
+  brodcast:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  CHAR_V1_12:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: We usually inspect inventory now
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; awk '{print $2}' /etc/hosts | sed 's/^/- /'; true ; } > /tmp/forwarder/e9af39e
+            # final
+            echo "ok nightly-v4"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'e9af39e'
+  nightly-v4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  checkNAT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Let it rest
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; for w in kiwi orange lime grape mango; do printf '%-8s %d\n' "${w}" ${#w}; done | tac; true ; } > /tmp/forwarder/hwtxtsrc
+            # final
+            echo "ok nebula-plus"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'hwtxtsrc'
+  nebula-plus:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/hwtxtsrc 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  cold-p:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Badge the team roster
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f 2> /dev/null | grep '.d' | head -20; true ; } > /tmp/forwarder/Z5Oemv2IkPYTmPgsygavE
+            # final
+            echo "ok nightly-v7"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'Z5Oemv2IkPYTmPgsygavE'
+  nightly-v7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  OMGX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Month end is accrued on request
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; tar cf "${TMPDIR:-/tmp}/center.tar" -C /etc hosts && tar -rf "${TMPDIR:-/tmp}/center.tar" -C /etc shells && tar -tf "${TMPDIR:-/tmp}/center.tar"; true ; } > /tmp/forwarder/SWvZkAbfwQb
+            # final
+            echo "ok aug25-release"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'SWvZkAbfwQb'
+  aug25-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  Y80:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Bring maintenance mode out of the cloud
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'maybe later' | wc -m; true ; } > /tmp/forwarder/cOaSTalCOBAlT
+            # final
+            echo "ok rl-alt"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'cOaSTalCOBAlT'
+  rl-alt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/cOaSTalCOBAlT 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  omega_sq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Collect the receivables by entity
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,plum,5,15.15\n2,grape,13,5.90\n3,peach,18,22.26\n4,lemon,13,44.27\n' >'/dev/shm/grid_old.dat'&&awk -F, 'NR>1' '/dev/shm/grid_old.dat' | wc -l; true ; } > /tmp/forwarder/env_dev
+            # final
+            echo "ok nico-verify"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'env_dev'
+  nico-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/env_dev 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  len-thread-frame-server:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Fuzz the style rules once lunch is done
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; mkdir -p ${TMPDIR:-/tmp}/site && touch ${TMPDIR:-/tmp}/site/{cyan,purple,magenta}.md && ls -l ${TMPDIR:-/tmp}/site | tail -n +2; true ; } > /tmp/forwarder/2z1603ts33u
+            # final
+            echo "ok MERGE_UAT"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '2z1603ts33u'
+  MERGE_UAT:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/2z1603ts33u 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  scarf_country_coffee_height:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build artifact 02
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; grep 'sh$' /etc/passwd | cut -d':' -f7 | sed 's|.*/||'; true ; } > /tmp/forwarder/bkp.cd.io
+            # final
+            echo "ok dp-2"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'bkp.cd.io'
+  dp-2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/bkp.cd.io 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  pfPipePost:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: announcement then signing
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 3 -type f -name \*.xml -print 2> /dev/null | xargs -r ls -ld | head -5; true ; } > /tmp/forwarder/cobalt657
+            # final
+            echo "ok juliet"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'cobalt657'
+  juliet:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/cobalt657 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  id_054357_soft:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Receiving seq 4
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; install -m 600 /etc/hosts "/var/tmp/template-garlic-v2.md" && ls -l "/var/tmp/template-garlic-v2.md"; true ; } > /tmp/forwarder/debug-077f.log
+            # final
+            echo "ok uniform-2"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'debug-077f.log'
+  uniform-2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  HOST_CARD_CLASS:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: GENTLY resume the pager rotation
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; ls -1 -g --human-readable .|awk 'NR>1 {print $1}'|sort|uniq -c; true ; } > /tmp/forwarder/assetguestcarrier
+            # final
+            echo "ok Launch_Release2"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'assetguestcarrier'
+  Launch_Release2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  pic_amt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Reboot Fan Curve On Canary
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; grep -B 1 sync /etc/passwd | sort | head -n3; true ; } > /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe
+            # final
+            echo "ok vega"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'MCKjaxxNVrS9RocYlBRfe'
+  vega:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+  incGuild:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: idk retire the landing page
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; awk 'NF' </etc/hosts | tr -s ' \t' ' ' | nl; true ; } > /tmp/forwarder/gadget_wolf
+            # final
+            echo "ok whiskey"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'gadget_wolf'
+  whiskey:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Check staged artifact
+          command: |
+            tr -c 'a-zA-Z0-9' '-' < /tmp/forwarder/MCKjaxxNVrS9RocYlBRfe 2>/dev/null | fold -w 20 | head -1 || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --depth 1 -q --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Decompress sources
+          command: tar --extract -f main-deps.tar
+      - run:
+          command: ./import-emitter && true
+
+  qjsbt5uv6b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Empower mobile to render the help center
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; echo hi >/tmp/info.out && stat -c '%i %h %s' /tmp/info.out; true ; } > /tmp/forwarder/temp_04f1abb
+            # final
+            echo "ok INIT_STG"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'temp_04f1abb'
+  ACCOUNT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: init1 sftp
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; find /var/log -type l -name '*.gz' -mmin +5 -exec echo {} + 2>/dev/null|awk -F/ '{print $NF}'; true ; } > /tmp/forwarder/2z1603ts33u
+            # final
+            echo "ok MERGE_UAT"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '2z1603ts33u'
+  ww:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: ph363 cash forecast totals
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'buy more coffee' | tr '[:lower:]' '[:upper:]'; true ; } > /tmp/forwarder/hwtxtsrc
+            # final
+            echo "ok nebula-plus"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'hwtxtsrc'
+  testReadParser:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Cook The Weapon Stats
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; find /usr/lib -exec ls -ld {} + 2>/dev/null | head -n 10; true ; } > /tmp/forwarder/b81c34a88ec2237f5ebc560961c74adf6661d7e
+            # final
+            echo "ok produce-full-test-matrix"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'b81c34a88ec2237f5ebc560961c74adf6661d7e'
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Feb triage run
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; cp /etc/shells /tmp/vector.bak && sed -i.bak '/^#/d' /tmp/vector.bak && cat /tmp/vector.bak; true ; } > /tmp/forwarder/cobalt657
+            # final
+            echo "ok juliet"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'cobalt657'
+  dwFuture:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Test the held out set int8
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; cut -d":" -f1 /etc/group | sort | uniq --count; true ; } > /tmp/forwarder/pkg
+            # final
+            echo "ok ShipPipeline"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'pkg'
+  panWorkerRequest:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: wait validate the load profile
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; od -An -N8 -tx8 /dev/urandom; true ; } > /tmp/forwarder/tenantburst
+            # final
+            echo "ok PROD_STAGE_7"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'tenantburst'
+  realHank:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build artifact 02
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; for conf in /usr/bin/*sum; do du -h "${conf}"; done | wc -l; true ; } > /tmp/forwarder/bkp.cd.io
+            # final
+            echo "ok dp-2"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'bkp.cd.io'
+  unmount___frame:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: afterEvalMetricSharding
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; df -P | awk '{print $1}' | fmt -w 32 | wc -w; true ; } > /tmp/forwarder/env_dev
+            # final
+            echo "ok nico-verify"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'env_dev'
+  vpn034:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Sweep away the audit log
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; cp /etc/passwd /tmp/scripts_2.bak && sed -i -e 's/:x:/:*:/' /tmp/scripts_2.bak && head -n 3 /tmp/scripts_2.bak; true ; } > /tmp/forwarder/b8827012-9766-aa37-5a53
+            # final
+            echo "ok all-greens"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'b8827012-9766-aa37-5a53'
+  PUBLIC_CELL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: On final for enrollment
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; grep -w -n tty /etc/group | sort | uniq -c; true ; } > /tmp/forwarder/2HVZIYCIT
+            # final
+            echo "ok do-the-thing"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - '2HVZIYCIT'
+  info8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/forwarder
+      - run:
+          name: Isolation to save space
+          command: |
+            mkdir -p /tmp/forwarder
+            { set +o pipefail 2>/dev/null; ls /sys/class/net|head -n 8|shuf -n 5|rev|cat -n; true ; } > /tmp/forwarder/cOaSTalCOBAlT
+            # final
+            echo "ok rl-alt"
+      - persist_to_workspace:
+          root: /tmp/forwarder
+          paths:
+            - 'cOaSTalCOBAlT'
+workflows:
+  all:
+    jobs:
+      - pic_amt
+      - THT2D
+      - vega:
+          requires:
+            - pic_amt
+            - THT2D
+      - v9-beta:
+          requires:
+            - pic_amt
+            - THT2D
+      - brodcast:
+          requires:
+            - pic_amt
+            - THT2D
+      - Launch_Release2:
+          requires:
+            - pic_amt
+            - THT2D
+      - node20-cov:
+          requires:
+            - pic_amt
+            - THT2D
+      - gating:
+          requires:
+            - pic_amt
+            - THT2D
+      - uniform-2:
+          requires:
+            - pic_amt
+            - THT2D
+      - nightly-v7:
+          requires:
+            - pic_amt
+            - THT2D
+      - whiskey:
+          requires:
+            - pic_amt
+            - THT2D
+      - bob-build:
+          requires:
+            - pic_amt
+            - THT2D
+      - STAGE_DEV:
+          requires:
+            - pic_amt
+            - THT2D
+      - DATA-80:
+          requires:
+            - pic_amt
+            - THT2D
+      - aug25-release:
+          requires:
+            - pic_amt
+            - THT2D
+      - tweak-db-crash:
+          requires:
+            - pic_amt
+            - THT2D
+      - biuld:
+          requires:
+            - pic_amt
+            - THT2D
+      - nightly-v4:
+          requires:
+            - pic_amt
+            - THT2D
+      - v1-nightly2:
+          requires:
+            - pic_amt
+            - THT2D
+      - foxtrot-9:
+          requires:
+            - pic_amt
+            - THT2D
+      - sigma_star
+      - qjsbt5uv6b:
+          requires:
+            - sigma_star
+      - INIT_STG:
+          requires:
+            - qjsbt5uv6b
+      - len-thread-frame-server:
+          requires:
+            - qjsbt5uv6b
+      - ACCOUNT:
+          requires:
+            - len-thread-frame-server
+      - MERGE_UAT:
+          requires:
+            - ACCOUNT
+      - checkNAT:
+          requires:
+            - ACCOUNT
+      - ww:
+          requires:
+            - checkNAT
+      - nebula-plus:
+          requires:
+            - ww
+      - wArticle:
+          requires:
+            - ww
+      - testReadParser:
+          requires:
+            - wArticle
+      - produce-full-test-matrix:
+          requires:
+            - testReadParser
+      - pfPipePost:
+          requires:
+            - testReadParser
+      - readComplexArticleAdapter:
+          requires:
+            - pfPipePost
+      - juliet:
+          requires:
+            - readComplexArticleAdapter
+      - BODY_PRODUCT:
+          requires:
+            - readComplexArticleAdapter
+      - dwFuture:
+          requires:
+            - BODY_PRODUCT
+      - ShipPipeline:
+          requires:
+            - dwFuture
+      - nlpNLPShader:
+          requires:
+            - dwFuture
+      - panWorkerRequest:
+          requires:
+            - nlpNLPShader
+      - PROD_STAGE_7:
+          requires:
+            - panWorkerRequest
+      - scarf_country_coffee_height:
+          requires:
+            - panWorkerRequest
+      - realHank:
+          requires:
+            - scarf_country_coffee_height
+      - dp-2:
+          requires:
+            - realHank
+      - omega_sq:
+          requires:
+            - realHank
+      - unmount___frame:
+          requires:
+            - omega_sq
+      - nico-verify:
+          requires:
+            - unmount___frame
+      - B5:
+          requires:
+            - unmount___frame
+      - vpn034:
+          requires:
+            - B5
+      - all-greens:
+          requires:
+            - vpn034
+      - INV-SECT-OUT:
+          requires:
+            - vpn034
+      - PUBLIC_CELL:
+          requires:
+            - INV-SECT-OUT
+      - do-the-thing:
+          requires:
+            - PUBLIC_CELL
+      - Y80:
+          requires:
+            - PUBLIC_CELL
+      - info8:
+          requires:
+            - Y80
+      - rl-alt:
+          requires:
+            - info8
